@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie calculator</title>
+    <link rel="stylesheet" href="static/main.css">
+</head>
+<body>
+    <h1>Calorie Calculator</h1>
+    <p>Fill in the form and click the button to know how much calorie you need!</p>
+    <p>Let's get some information about you</p>
+
+    <form action="{{url_for('calorie_form_page')}}" method="POST">
+
+        <label for="">Weight(kg) : </label>
+        <input type="text" name="weight" value=60>
+        <label for="">Height(cm) : </label>
+        <input type="text" name="height" value=160>
+        <label for="">Age(years) : </label>
+        <input type="text" name="age" value=20>
+        <hr>
+        <p>Todays weather count too.
+            <br><br>
+            Tell us where you are so we include today temperature into the calculations
+        </p>
+        <label for="">City :</label>
+        <input type="text" name="city" value="Bangalore">
+        <label for="">Country :</label>
+        <input type="text" name="country" value="India">
+        <button type="submit">Calculate</button>
+    </form>
+    {% if result %}
+        <b>You need {{value}} calories (Kcal) today</b>
+    {% endif %}
+</body>
+</html>
